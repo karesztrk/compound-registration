@@ -16,6 +16,7 @@ const IndexPage: FC = () => {
         <div>
           <Toggle
             size='large'
+            initialChecked={exportDisabled}
             checked={exportDisabled}
             onChange={onChangeToggle}
           />

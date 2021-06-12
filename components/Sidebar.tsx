@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Spacer } from '@geist-ui/react';
+import { Grid, Spacer } from '@geist-ui/react';
 import NextLink from 'next/link';
 import { useTheme, Link } from '@geist-ui/react';
 import { useRouter } from 'next/router';
@@ -51,15 +51,10 @@ const Sidebar = () => {
   };
 
   return (
-    <Row
-      gap={0.8}
-      style={{ flexDirection: 'column', padding: '1em' }}
-      component='nav'
-    >
-      <Spacer y={5} />
-      <Col>{renderChemistryMenuItem()}</Col>
-      <Col>{renderStructuresMenuItem()}</Col>
-    </Row>
+    <Grid direction='column'>
+      {renderChemistryMenuItem()}
+      {renderStructuresMenuItem()}
+    </Grid>
   );
 };
 

@@ -6,7 +6,7 @@ import AppContextProvider from '../context/AppContextProvider';
 const baseTheme = Themes.createFromLight({
   type: 'Chemaxon',
   layout: {
-    pageMargin: '10px',
+    pageWidth: '100vw',
   },
 });
 

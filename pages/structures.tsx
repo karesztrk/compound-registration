@@ -1,16 +1,17 @@
-import Link from 'next/link'
-import Layout from '../components/Layout'
+import Layout from '../components/Layout';
+import { Text, Card } from '@geist-ui/react';
+import { useContext } from 'react';
+import { AppContext } from '../context/AppContextProvider';
 
-const AboutPage = () => (
-  <Layout title="About | Next.js + TypeScript Example">
-    <h1>About</h1>
-    <p>This is the about page</p>
-    <p>
-      <Link href="/">
-        <a>Go home</a>
-      </Link>
-    </p>
-  </Layout>
-)
+const AboutPage = () => {
+  const { exportDisabled } = useContext(AppContext);
+  return (
+    <Layout title='Options'>
+      <Card style={{ width: '100%' }}>
+        <Text>Export disabled: {String(exportDisabled)}</Text>
+      </Card>
+    </Layout>
+  );
+};
 
-export default AboutPage
+export default AboutPage;

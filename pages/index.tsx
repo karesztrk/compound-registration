@@ -1,14 +1,35 @@
 import Layout from '../components/Layout';
-import { Page, Text, Card } from '@geist-ui/react';
+import { Text, Card, Toggle } from '@geist-ui/react';
+import { FC, useContext } from 'react';
+import { AppContext } from '../context/AppContextProvider';
 
-const IndexPage = () => (
-  <Layout title='Options'>
-    <Card style={{ width: '100%' }}>
-      <Text>
-        Hello, I am using <Text b>Geist UI</Text> !
-      </Text>
-    </Card>
-  </Layout>
-);
+const IndexPage: FC = () => {
+  const { exportDisabled, setSwitchStateAction } = useContext(AppContext);
+
+  const onChangeToggle = (e) => {
+    setSwitchStateAction(e.target.checked);
+  };
+
+  return (
+    <Layout title='Options'>
+      <Card style={{ width: '100%' }}>
+        <div>
+          <Toggle
+            size='large'
+            checked={exportDisabled}
+            onChange={onChangeToggle}
+          />
+          &nbsp;
+          <label>Disable V2000 export</label>
+        </div>
+        <Text>
+          Disable the option to export in any of the MDL V2000 formats, and hide
+          the absolute stereo chiral flag from the canvas (for more information
+          please see the documentation)
+        </Text>
+      </Card>
+    </Layout>
+  );
+};
 
 export default IndexPage;

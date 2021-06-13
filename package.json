@@ -1,6 +1,11 @@
 {
   "name": "compound-registration",
   "version": "1.0.0",
+  "author": {
+    "name": "Károly török",
+    "email": "torok.karoly.krisztian@gmail.com",
+    "url": "https://karolytorok.netlify.app/"
+  },
   "scripts": {
     "dev:db": "concurrently -n next,db \"yarn dev\" \"yarn db\"",
     "dev": "next",
@@ -8,7 +13,8 @@
     "build": "next build",
     "start": "next start",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "e2e": "cypress open"
   },
   "dependencies": {
     "@geist-ui/react": "^2.1.5",
@@ -20,12 +26,14 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^13.1.9",
     "@types/jest": "^26.0.23",
     "@types/node": "^12.12.21",
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.1",
     "babel-jest": "^27.0.2",
     "concurrently": "^6.2.0",
+    "cypress": "^7.5.0",
     "jest": "^27.0.4",
     "jsdom": "^16.6.0",
     "jsdom-global": "^3.0.2",

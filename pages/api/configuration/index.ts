@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
-const apiPath = 'http://localhost:5000/configuration';
+const apiPath = process.env.dbApiPath;
+console.log(apiPath);
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {

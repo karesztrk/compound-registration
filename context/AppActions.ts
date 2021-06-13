@@ -1,9 +1,10 @@
-const apiPath = '/api/configuration';
+const apiPath = process.env.apiPath;
 
 export const getSwitchStateAction = (dispatch) => async () => {
   const res = await fetch(apiPath, {
     method: 'GET',
   });
+  console.log(process.env.NODE_ENV);
   const data = await res.json();
   dispatch({
     type: 'UPDATE_SWITCH_STATE',

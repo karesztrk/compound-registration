@@ -9,7 +9,7 @@ import {
   Card,
 } from '@geist-ui/react';
 import Sidebar from './Sidebar';
-import BrandIcon from './icons/BrandIcon';
+import BrandIcon from '../icons/BrandIcon';
 
 type LayoutProps = {
   children?: ReactNode;

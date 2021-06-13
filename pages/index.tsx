@@ -1,4 +1,4 @@
-import Layout from '../components/Layout';
+import Layout from '../components/layout/Layout';
 import { Text, Toggle } from '@geist-ui/react';
 import { FC, useContext, useEffect } from 'react';
 import { AppContext } from '../context/AppContextProvider';

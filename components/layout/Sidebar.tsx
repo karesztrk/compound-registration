@@ -3,8 +3,8 @@ import { Grid, Spacer } from '@geist-ui/react';
 import NextLink from 'next/link';
 import { useTheme, Link } from '@geist-ui/react';
 import { useRouter } from 'next/router';
-import LabIcon from './icons/LabIcon';
-import StructureIcon from './icons/StructureIcon';
+import LabIcon from '../icons/LabIcon';
+import StructureIcon from '../icons/StructureIcon';
 
 const Sidebar = () => {
   const { pathname } = useRouter();

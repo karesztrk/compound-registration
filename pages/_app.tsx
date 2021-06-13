@@ -3,20 +3,12 @@ import { AppProps } from 'next/dist/next-server/lib/router/router';
 import { createContext, FC } from 'react';
 import AppContextProvider from '../context/AppContextProvider';
 
-const baseTheme = Themes.createFromLight({
+const theme = Themes.createFromLight({
   type: 'Chemaxon',
   layout: {
     pageWidth: '100vw',
   },
 });
-
-const theme = {
-  ...baseTheme,
-  palette: {
-    ...baseTheme.palette,
-    sideBarLinkColor: '#dfdfdf',
-  },
-};
 
 const initialState = {
   exportDisabled: false,

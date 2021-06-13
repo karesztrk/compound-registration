@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { IconProps } from '../../types/types';
+import { IconProps } from '../../interfaces';
 
 const StructureIcon: FC<IconProps> = ({ size, color, shrink }) => {
   return (

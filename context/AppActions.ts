@@ -6,7 +6,7 @@ export const getSwitchStateAction = (dispatch) => async () => {
   });
   const data = await res.json();
   dispatch({
-    type: 'GET_SWITCH_STATE',
+    type: 'UPDATE_SWITCH_STATE',
     payload: {
       exportDisabled: data.exportDisabled,
     },

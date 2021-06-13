@@ -1,17 +1,14 @@
 import React, { FC } from 'react';
+import { IconProps } from '../../types/types';
 
-interface LabIconProps {
-  size: number;
-  color: string;
-}
-
-const LabIcon: FC<LabIconProps> = ({ size, color }) => {
+const LabIcon: FC<IconProps> = ({ size, color, shrink }) => {
   return (
     <svg
       width={size}
       height={size}
       style={{
         fill: color,
+        flexShrink: shrink,
       }}
       viewBox='0 0 72 72'
       xmlns='http://www.w3.org/2000/svg'

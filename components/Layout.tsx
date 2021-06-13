@@ -1,6 +1,6 @@
 import React, { FC, ReactNode } from 'react';
 import Head from 'next/head';
-import { Page, Text, Grid, useTheme } from '@geist-ui/react';
+import { Page, Text, Grid, useTheme, useMediaQuery } from '@geist-ui/react';
 import Sidebar from './Sidebar';
 import BrandIcon from './icons/BrandIcon';
 
@@ -11,6 +11,7 @@ type LayoutProps = {
 
 const Layout: FC<LayoutProps> = ({ children, title = 'Default title' }) => {
   const { palette } = useTheme();
+  const md = useMediaQuery('md', { match: 'down' });
   return (
     <div>
       <Head>
@@ -24,7 +25,6 @@ const Layout: FC<LayoutProps> = ({ children, title = 'Default title' }) => {
           padding: 0,
           height: '100vh',
           backgroundColor: '#2a2a2e',
-          overflow: 'hidden',
         }}
       >
         <Page.Header
@@ -34,13 +34,24 @@ const Layout: FC<LayoutProps> = ({ children, title = 'Default title' }) => {
         >
           <BrandIcon color='#fff' size={50} />
         </Page.Header>
-        <Page.Content style={{ height: '100%', padding: 0 }}>
-          <Grid.Container gap={2} justify='center' style={{ height: '100%' }}>
-            <Grid xs={4}>
+        <Page.Content style={{ height: '100%', width: '100%', padding: 0 }}>
+          <Grid.Container
+            gap={5}
+            justify='center'
+            style={{ height: '100%', width: '100%', margin: '0 auto' }}
+          >
+            <Grid
+              xs={24}
+              md={4}
+              direction='column'
+              justify={md ? 'center' : 'flex-start'}
+              alignItems={md ? 'center' : 'flex-start'}
+            >
               <Sidebar />
             </Grid>
             <Grid
-              xs={20}
+              xs={24}
+              md={20}
               direction='column'
               style={{ backgroundColor: palette.background }}
             >

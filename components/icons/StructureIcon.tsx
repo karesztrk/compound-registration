@@ -1,17 +1,14 @@
 import React, { FC } from 'react';
+import { IconProps } from '../../types/types';
 
-interface StructureIconProps {
-  size: number;
-  color: string;
-}
-
-const StructureIcon: FC<StructureIconProps> = ({ size, color }) => {
+const StructureIcon: FC<IconProps> = ({ size, color, shrink }) => {
   return (
     <svg
       width={size}
       height={size}
       style={{
         fill: color,
+        flexShrink: shrink,
       }}
       viewBox='0 0 80 80'
       xmlns='http://www.w3.org/2000/svg'

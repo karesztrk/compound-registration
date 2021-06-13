@@ -12,18 +12,18 @@ const Sidebar = () => {
   const selectedColor = palette.background;
   const color = palette.accents_3;
 
+  const linkStyle = (selected) => ({
+    color: selected ? selectedColor : color,
+    alignItems: 'center',
+  });
+
   const renderChemistryMenuItem = () => {
     const selected = pathname === '/';
-    const menuItemColor = selected ? selectedColor : color;
+    const style = linkStyle(selected);
     return (
       <NextLink href='/'>
-        <Link
-          style={{
-            color: menuItemColor,
-            alignItems: 'center',
-          }}
-        >
-          <LabIcon size={20} color='#fff' />
+        <Link style={style}>
+          <LabIcon size={20} color='#fff' shrink={0} />
           <Spacer inline x={0.5} />
           <span>Chemistry</span>
         </Link>
@@ -33,16 +33,11 @@ const Sidebar = () => {
 
   const renderStructuresMenuItem = () => {
     const selected = pathname === '/structures';
-    const menuItemColor = selected ? selectedColor : color;
+    const style = linkStyle(selected);
     return (
       <NextLink href='/structures'>
-        <Link
-          style={{
-            color: menuItemColor,
-            alignItems: 'center',
-          }}
-        >
-          <StructureIcon size={20} color='#fff' />
+        <Link style={style}>
+          <StructureIcon size={20} color='#fff' shrink={0} />
           <Spacer inline x={0.5} />
           <span>Chemical Structures</span>
         </Link>
@@ -51,10 +46,10 @@ const Sidebar = () => {
   };
 
   return (
-    <Grid direction='column'>
+    <>
       {renderChemistryMenuItem()}
       {renderStructuresMenuItem()}
-    </Grid>
+    </>
   );
 };
 

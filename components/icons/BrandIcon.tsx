@@ -1,16 +1,13 @@
 import React, { FC } from 'react';
+import { IconProps } from '../../types/types';
 
-interface BrandIconProps {
-  size: number;
-  color: string;
-}
-
-const BrandIcon: FC<BrandIconProps> = ({ size, color }) => {
+const BrandIcon: FC<IconProps> = ({ size, color, shrink }) => {
   return (
     <svg
       height={size}
       style={{
         fill: color,
+        flexShrink: shrink,
       }}
       viewBox='0 0 234 64'
       xmlns='http://www.w3.org/2000/svg'

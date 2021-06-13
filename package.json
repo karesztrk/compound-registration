@@ -7,7 +7,7 @@
     "url": "https://karolytorok.netlify.app/"
   },
   "scripts": {
-    "dev:db": "concurrently -n next,db \"yarn dev\" \"yarn db\"",
+    "dev:db": "concurrently -n next,db \"npm run dev\" \"npm run db\"",
     "dev": "next",
     "db": "json-server --watch db.json --port 5000",
     "build": "next build",

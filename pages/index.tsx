@@ -1,13 +1,18 @@
 import Layout from '../components/Layout';
 import { Text, Card, Toggle } from '@geist-ui/react';
-import { FC, useContext } from 'react';
+import { FC, useContext, useEffect } from 'react';
 import { AppContext } from '../context/AppContextProvider';
 
 const IndexPage: FC = () => {
-  const { exportDisabled, setSwitchStateAction } = useContext(AppContext);
+  const { exportDisabled, setSwitchState, getSwitchState } =
+    useContext(AppContext);
+
+  useEffect(() => {
+    getSwitchState();
+  }, []);
 
   const onChangeToggle = (e) => {
-    setSwitchStateAction(e.target.checked);
+    setSwitchState(e.target.checked);
   };
 
   return (

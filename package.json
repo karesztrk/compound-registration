@@ -2,12 +2,15 @@
   "name": "compound-registration",
   "version": "1.0.0",
   "scripts": {
+    "dev:all": "concurrently -n next,db \"yarn dev\" \"yarn db\"",
     "dev": "next",
+    "db": "json-server --watch db.json --port 5000",
     "build": "next build",
     "start": "next start"
   },
   "dependencies": {
     "@geist-ui/react": "^2.1.5",
+    "json-server": "^0.16.3",
     "next": "latest",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
@@ -16,6 +19,7 @@
     "@types/node": "^12.12.21",
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.1",
+    "concurrently": "^6.2.0",
     "typescript": "4.0"
   },
   "license": "MIT"

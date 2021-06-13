@@ -1,11 +1,12 @@
 import { GetServerSideProps } from 'next';
 import React, { createContext, useReducer } from 'react';
 import AppReducer from './AppReducer';
+import { getSwitchStateAction, setSwitchStateAction } from './AppActions';
 
 interface AppState {
   exportDisabled: boolean;
-  getSwitchStateAction: () => void;
-  setSwitchStateAction: (exportDisabled) => void;
+  getSwitchState: () => void;
+  setSwitchState: (exportDisabled) => void;
 }
 
 const initialState: any = {
@@ -14,44 +15,18 @@ const initialState: any = {
 
 export const AppContext = createContext<AppState>(initialState);
 
-const apiPath = 'http://localhost:3000/api/settings';
-
 const AppContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
 
-  const getSwitchStateAction = async () => {
-    const res = await fetch(apiPath, {
-      method: 'GET',
-    });
-    const data = await res.json();
-    dispatch({
-      type: 'SET_SWITCH_STATE',
-      payload: {
-        exportDisabled: data.exportDisabled,
-      },
-    });
-  };
-
-  const setSwitchStateAction = async (exportDisabled) => {
-    const res = await fetch(apiPath, {
-      method: 'PUT',
-      body: JSON.stringify({ exportDisabled }),
-    });
-    const data = await res.json();
-    dispatch({
-      type: 'SET_SWITCH_STATE',
-      payload: {
-        exportDisabled: data.exportDisabled,
-      },
-    });
-  };
+  const getSwitchState = getSwitchStateAction(dispatch);
+  const setSwitchState = setSwitchStateAction(dispatch);
 
   return (
     <AppContext.Provider
       value={{
         exportDisabled: state.exportDisabled,
-        getSwitchStateAction,
-        setSwitchStateAction,
+        getSwitchState,
+        setSwitchState,
       }}
     >
       {children}

@@ -1,22 +1,26 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
-const handler = (req: NextApiRequest, res: NextApiResponse) => {
+const apiPath = 'http://localhost:5000/configuration';
+
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const { method } = req;
-
     switch (method) {
       case 'PUT': {
-        const { exportDisabled } = JSON.parse(req.body);
-        res.status(200).json({
-          exportDisabled,
+        const result = await fetch(`${apiPath}`, {
+          method,
+          headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+          },
+          body: req.body,
         });
+        res.status(result.status).json(result.body);
         break;
       }
 
       case 'GET': {
-        res.status(200).json({
-          exportDisabled: false,
-        });
+        const result = await fetch(apiPath);
+        res.status(result.status).json(result.body);
         break;
       }
 
